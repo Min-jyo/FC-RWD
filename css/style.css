@@ -1,71 +1,193 @@
 @charset "utf-8";
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 @import url(./fonts.css);
-*, *::before, *::after { 
-  font-family: 'Spoqa Han Sans', 'Sans-serif'; 
+
+*,
+*::before,
+*::after {
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
   box-sizing: border-box;
 }
+
 /* Reset CSS */
-fieldset{
+
+ul,
+ol,
+li {
+  list-style: none;
+  padding-left: 0;
+}
+
+fieldset {
   margin: 0;
   padding: 0;
   border: 0 none;
 }
-legend, .a11y-hidden{
+
+legend,
+.a11y-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   clip-path: polygon(0 0, 0 0, 0 0)
 }
 
-a{
+a {
   text-decoration: none;
   color: inherit;
 }
+
 /* grid module */
-.flex-row{
+.flex-row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
-.flex-col{
+.flex-col {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
+/* mobile grid */
+
+
+
 /* All Device */
-.container{
+.container {
   background: silver;
 }
-.header{
+
+.header {
   background: yellow;
 }
-.navigation{
-  background: pink ;
+
+.navigation {
+  background: pink;
 }
-.main{
+
+.main {
   background: skyblue;
 }
-.book{
+
+.book {
   background: lime;
 }
-.news{
+
+.news {
   background: goldenrod;
 }
-.board{
+
+.board {
   background: teal;
 }
-.favorite{
+
+.favorite {
   background: hotpink;
 }
-.twitter{
+
+.twitter {
   background: aqua;
 }
-.footer{
+
+.footer {
   background: orange;
+  height: 10vh;
+}
+
+/* mobile device */
+@media screen and (max-width: 62.5em) {
+  .col-m1 {
+    width: 20%;
+  }
+
+  .col-m2 {
+    width: 45%;
+  }
+
+  .col-m3 {
+    width: 70%;
+  }
+
+  .col-m4 {
+    width: 100%;
+  }
+
+  /* mobile header */
+  .header{
+    background: #32302e;
+  }
+  
+  .logo,
+  .member,
+  .search {
+    width: 100%;
+  }
+  /* mobile member */
+
+  .member {
+    order: -1;
+    display: flex;
+    justify-content: flex-end;
+    background: #988574;
+    color: #fff;
+    margin : 0;
+    padding: 0.5em 0;
+  }
+
+  .member a{
+    padding: 0.35em 0;
+    display: block;
+    margin-left: 1em;
+  }
+
+  /* mobile logo */
+  
+
+
+}
+
+/* desktop device */
+@media screen and (min-width: 62.5em) {
+
+  /* desktop grid */
+  .col-d3 {
+    width: calc(65px * 3 + 20px * 2);
+  }
+
+  .col-d4 {
+    width: calc(65px * 4 + 20px * 3);
+  }
+
+  .col-d5 {
+    width: calc(65px * 5 + 20px * 4);
+  }
+
+  .col-d8 {
+    width: calc(65px * 8 + 20px * 7);
+  }
+
+  .container {
+    align-items: center;
+  }
+
+  .header,
+  .main {
+    width: 1000px;
+  }
+
+  .navigation,
+  .footer {
+    width: 100%;
+  }
+
+  .main {
+    justify-content: space-between;
+  }
 }
