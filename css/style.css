@@ -1,6 +1,15 @@
 @charset "utf-8";
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 @import url(./fonts.css);
+
+:root{
+  --point1: #abd375;
+  --point2: #e8ca58;
+  --point3: #c7b39a;
+  --point4: #eea60a;
+  --point5: #6aaee6;
+}
+
 *, *::before, *::after { 
   font-family: 'Spoqa Han Sans', 'Sans-serif'; 
   box-sizing: border-box;
@@ -41,18 +50,12 @@ a{
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-
+/* responsive content */
+.responsive{
+  max-width: 100%;
+  height: auto;
+}
 /* All Device */
-
-.navigation{
-  background: pink;
-}
-.main{
-  background: skyblue;
-}
-.book{
-  background: lime;
-}
 .news{
   background: goldenrod;
 }
@@ -69,8 +72,78 @@ a{
   background: orange;
   height: 10vh;
 }
-
-
+/* All Search */
+.search{
+  text-align: right;
+}
+[type="search"]{
+  border: 1px solid #aaa;
+  border-radius: 0.35em;
+  height: 2em;
+  margin-right: 0.5em;
+}
+/* All main content */
+.sprite{
+  background: url(./images/sprite_main.png) no-repeat;
+  height: 60px;
+  padding-left: 65px;
+}
+.main [class*="heading"]{
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.news-heading{
+  background-position: 0 -230px;
+}
+.board-heading {
+  background-position: 0 -115px;
+}
+.favorite-heading {
+  background-position: 0 -345px;
+}
+.twitter-heading {
+  background-position: 0 -460px;
+}
+.book-heading .point{
+  /* color: #abd375; */
+  color: var(--point1);
+}
+.news-heading .point {
+  color: var(--point2);
+}
+.board-heading .point {
+  color: var(--point3);
+}
+.favorite-heading .point {
+  color: var(--point4);
+}
+.twitter-heading .point {
+  color: var(--point5);
+}
+/* recommand book */
+.book-cover{
+  text-align: center;
+}
+.book-detail{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.book-author-name{
+  margin-left: 0.5em;
+}
+.book-grade{
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5em;
+  color: var(--point1);
+}
+[class$="summary"]{
+  line-height: 2;
+}
 /* Mobile Device */
 @media screen and (max-width: 62.5em){
   /* mobile grid */
@@ -118,15 +191,8 @@ a{
     margin-left: 1em;
   }
   /* mobile search */
-  .search{
-    text-align: right;
-  }
   [type="search"]{
-    border: 1px solid #aaa;
-    border-radius: 0.35em;
-    height: 2em;
     width: calc(100% - 3em);
-    margin-right: 0.5em;
   }
   .btn-search{
     border: 0 none;
@@ -251,7 +317,7 @@ a{
   .container{
     align-items: center;
   }
-  .header, .main{
+  .header, .menu, .main{
     width: 1000px;
   }
   .navigation, .footer{
@@ -261,15 +327,15 @@ a{
   .header{
     display: block;
     position: relative;
+    padding-bottom: 1.5em;
   }
   /* Desktop logo */
   .logo{
-    background: blue;
     position: absolute;
     left:0;
-    top: 0;
+    top: 50%;
     margin: 0;
-    display: none;
+    transform: translateY(-50%);
   }
   /* Desktop member */
   .member{
@@ -284,10 +350,50 @@ a{
     display: inline-block;
     padding: 0.5em 0;
   }
-
+  /* Desktop search */
+  [type="search"]{
+    width: 40%;
+  }
+  .btn-search{
+    border: 1px solid #aaa;
+    border-radius: 0.35em;
+    background: #988674;
+    color: #fff;
+    height: 2em;
+    padding: 0 1em;
+  }
   /* Desktop main menu */
+  .navigation{
+    background: #988574;
+    color: #fff;
+    /* border-top: 2px solid #000;
+    border-bottom: 2px solid #000; */
+    box-shadow: 0 -1px 2px 0 #aaa, 0 1px 2px 0 #aaa;
+  }
   .btn-menubar{
     display: none;
+  }
+  .menu{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  .menu-item{
+    font-weight: 700;
+    font-size: 1.15em;
+    padding: 0.35em 0;
+    display: block;
+    margin-bottom: 0.5em;
+    text-shadow: 1px 0 0 #000, 0 1px 0 #000,
+                -1px 0 0 #000, 0 -1px 0 #000;
+  }
+  .sub-menu li{
+    margin: 0.5em 0;
+  }
+  .sub-menu a{
+    display: block;
+    padding: 0.35em 0;
   }
   .main{
     justify-content: space-between;
